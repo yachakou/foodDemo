@@ -65,15 +65,4 @@ public class Food {
     public void setFoodSubGroup(String subGroup) {
         this.foodSubGroup = subGroup;
     }
-
-    @Override
-    public String toString() {
-        return "Food{" +
-                "foodId=" + foodId +
-                ", foodName='" + foodName + '\'' +
-                ", scientificName='" + scientificName + '\'' +
-                ", foodGroup='" + foodGroup + '\'' +
-                ", foodSubGroup='" + foodSubGroup + '\'' +
-                '}';
-    }
 }

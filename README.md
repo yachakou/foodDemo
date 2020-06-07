@@ -2,13 +2,13 @@
             - Java 8
             - Maven
 
-##  Pour démarer l'application, lancer l'une des commandes suivantes :
+##  Pour démarrer l'application, lancer l'une des commandes suivantes :
 
 - `mvn package` obligatoirement.
 - `mvn spring-boot:run` 
-ou `java -jar target/demo-0.0.1-SNAPSHOT.jar`
+ou `java -jar target/demo-0.0.1-SNAPSHOT.jar`/.
 
-## Pour consulter la base de données une fois l'application démmarer :
+## Pour consulter la base de données une fois l'application démarrée :
 Lien : http://localhost:8080/h2-console/
 
 - JDBC url : jdbc:h2:mem:testdb
