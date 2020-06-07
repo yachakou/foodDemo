@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 @Configuration
 public class LoadDatabase {
 
-    private static final Logger LOG = LoggerFactory.getLogger(LoadDatabase.class);
+    public static final String FOOD_CSV = "classpath:generic-food.csv";
 
     @Autowired
     private FoodRepository foodRepository;
@@ -29,7 +29,7 @@ public class LoadDatabase {
     public void initDatabase() throws IOException, CsvValidationException {
 
 
-        File file = ResourceUtils.getFile("classpath:generic-food.csv");
+        File file = ResourceUtils.getFile(FOOD_CSV);
 
         BufferedReader reader = Files.newBufferedReader(Paths.get(file.toURI()));
         CSVReader csvReader = new CSVReader(reader);
@@ -40,6 +40,5 @@ public class LoadDatabase {
             Food record = new Food(nextRecord[0], nextRecord[1], nextRecord[2], nextRecord[3]);
             foodRepository.save(record);
         }
-//        LOG.info("Insertion de " + nextRecord.length +" elements avec succés.");
     }
 }
