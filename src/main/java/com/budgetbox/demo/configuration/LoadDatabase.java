@@ -39,7 +39,7 @@ public class LoadDatabase {
 
             Food record = new Food(nextRecord[0], nextRecord[1], nextRecord[2], nextRecord[3]);
             foodRepository.save(record);
-            LOG.info("Insertion de " + record);
         }
+//        LOG.info("Insertion de " + nextRecord.length +" elements avec succés.");
     }
 }

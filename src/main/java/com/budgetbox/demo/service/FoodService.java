@@ -10,7 +10,7 @@ public interface FoodService {
 
     FoodModel recupererFoodParId(Long id) throws FoodNonTrouveeException;
 
-    void modifierFood(@Valid FoodModel foodModel) throws FoodNonTrouveeException;
+    void modifierFood(@Valid FoodModel foodModel, Long id) throws FoodNonTrouveeException;
 
     List<FoodModel> recupererToutFood();
 

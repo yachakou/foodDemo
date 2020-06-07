@@ -27,8 +27,8 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public void modifierFood(@Valid final FoodModel foodModel) throws FoodNonTrouveeException {
-        Optional<Food> resultat = foodRepository.findById(foodModel.getFoodId());
+    public void modifierFood(@Valid final FoodModel foodModel, final Long id) throws FoodNonTrouveeException {
+        Optional<Food> resultat = foodRepository.findById(id);
         if (resultat.isPresent()) {
             Food food = foodMapper.mapModelVersDb(foodModel);
             foodRepository.save(food);
@@ -39,7 +39,6 @@ public class FoodServiceImpl implements FoodService {
     public List<FoodModel> recupererToutFood() {
         List<Food> resultats = foodRepository.findAll();
         return foodMapper.mapDbsVersModel(resultats);
-
     }
 
     @Override
