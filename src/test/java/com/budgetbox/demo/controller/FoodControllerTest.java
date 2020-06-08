@@ -1,6 +1,5 @@
 package com.budgetbox.demo.controller;
 
-import com.budgetbox.demo.configuration.LoadDatabase;
 import com.budgetbox.demo.exception.FoodNonTrouveeException;
 import com.budgetbox.demo.model.response.FoodModel;
 import com.budgetbox.demo.service.FoodService;
@@ -8,14 +7,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -137,13 +133,11 @@ public class FoodControllerTest {
 
         String bodyEntreeJson = objectMapper.writeValueAsString(entree);
 
-        MvcResult mvcResult = mockMvc.perform(put(URL_FOOD_ID, ID)
+        mockMvc.perform(put(URL_FOOD_ID, ID)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(bodyEntreeJson))
                 .andExpect(status().isCreated())
                 .andReturn();
-
-        String contentAsString = mvcResult.getResponse().getContentAsString();
 
         verify(foodService).modifierFood(any(FoodModel.class), any(Long.class));
         verify(foodService).ajouterFood(any(FoodModel.class));

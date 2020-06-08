@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class FoodModel implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
 
     private Long foodId;
     @NotNull
